@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .coupon {
+            width: 250px;
+            border: 10px solid lightblue;
+            height: 180px;
+            border-radius: 5px;
+            background-image: url(./sonya.jpg);
+            background-position: 0 -120%;
+            background-size: 250px;
+            cursor: pointer;
+        }
+
+        .reverted {
+            display: none;
+            width: 250px;
+            border: 10px solid lightblue;
+            height: 180px;
+            background: lightblue;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: math;
+            color: darkslategrey;
+            font-size: 24px;
+            margin-top: 25%;
+            animation: blinker 1s linear infinite;
+        }
+
+        .animated {
+            animation: falling 3s linear forwards;
+            position: absolute;
+            top: 0;
+        }
+
+        .animated:nth-of-type(1) {
+            left: 0;
+        }
+
+        .animated:nth-of-type(2) {
+            left: 25%;
+        }
+
+        .animated:nth-of-type(3) {
+            left: 50%;
+        }
+
+        .animated:nth-of-type(4) {
+            left: 75%;
+        }
+
+        .animated:nth-of-type(5) {
+            right: 0;
+        }
+
+        @keyframes falling {
+            from {
+                top: 0;
+            }
+
+            to {
+                top: calc(100% - 25px);
+            }
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="coupon" id="coupon1"></div>
+    <div class="reverted" id="reverted1">
+        <h1>Awesome clothing you choose</h1>
+        <span class="animated">👚</span>
+        <span class="animated">👠</span>
+        <span class="animated">👕</span>
+        <span class="animated">👙</span>
+        <span class="animated">👜</span>
+    </div>
+
+    <div class="coupon" id="coupon2"></div>
+    <div class="reverted" id="reverted2">
+        <h1>Awesome dinner you choose</h1>
+        <span class="animated">🍣</span>
+        <span class="animated">🍖</span>
+        <span class="animated">🌭</span>
+        <span class="animated">🥩</span>
+        <span class="animated">🥙</span>
+    </div>
+
+    <div class="coupon" id="coupon3"></div>
+    <div class="reverted" id="reverted3">
+        <h1>Billions of чмок's from me</h1>
+        <span class="animated">💋</span>
+        <span class="animated">❤️</span>
+        <span class="animated">💋</span>
+        <span class="animated">❤️</span>
+        <span class="animated">💋</span>
+    </div>
+
+    <script>
+        document.getElementById('coupon1').addEventListener('click', (event) => {
+            event.target.style.display = 'none';
+            document.getElementById('reverted1').style.display = 'block';
+        });
+        document.getElementById('coupon2').addEventListener('click', (event) => {
+            event.target.style.display = 'none';
+            document.getElementById('reverted2').style.display = 'block';
+        });
+        document.getElementById('coupon3').addEventListener('click', (event) => {
+            event.target.style.display = 'none';
+            document.getElementById('reverted3').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
